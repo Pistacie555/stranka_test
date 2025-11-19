@@ -1,0 +1,53 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    background-color: #3863c0;
+    color: white;
+    padding: 10px 0;
+}
+
+.button-banner {
+    background-color: #ffffff;
+    color: #3863c0;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.seznam {
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px;
+    background-color: #d6d6d6;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.seznam:hover {
+    background-color: #e0e0e0;
+}
+.button-add {
+    background-color: #3863c0;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.button-delete {
+    background-color: #cc0404;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /moje_stranka/
+    
+    # Pokud požadavek není soubor...
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # ...ani adresář...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # ...přesměruj ho na index.php
+    RewriteRule . index.php [L]
+</IfModule>
