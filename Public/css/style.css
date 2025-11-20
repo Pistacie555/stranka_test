@@ -8,6 +8,7 @@ body {
     background-color: #3863c0;
     color: white;
     padding: 10px 0;
+    text-align: center;
 }
 
 .button-banner {
@@ -41,6 +42,10 @@ body {
     padding: 10px 15px;
     text-decoration: none;
     border-radius: 5px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    margin: 5px 0;
 }
 .button-delete {
     background-color: #cc0404;
@@ -50,4 +55,28 @@ body {
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+.button-back {
+    margin: 10px 20px 10px 0;
+    background-color: #777777;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }

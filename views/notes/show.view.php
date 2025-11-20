@@ -8,6 +8,8 @@ require base_path('views/partials/banner.php'); // Zahrnutí banneru
 
 <main>
     <p><?php echo htmlspecialchars($note['body']); ?></p>
+    <a href="note/edit?id=<?php echo htmlspecialchars($note['id'])?>" class="button-edit">Upravit poznámku</a>
+    <br>
     <form method="POST" action="/moje_stranka/note">
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="id" value="<?php echo $note['id'] ?>">
