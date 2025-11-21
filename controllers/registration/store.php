@@ -1,0 +1,48 @@
+<?php
+use Core\Database;
+use Core\App;
+use Core\Validator;
+
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+
+$errors = [];
+
+if (!Validator::email($email)) {
+    $errors['email'] = "Neplatná emailová adresa.";
+}
+
+if (!Validator::string($password, 8, 255)) {
+    $errors['password'] = "Heslo musí mít alespoň 8 znaků.";
+}
+
+if (!empty($errors)) {
+    view('registration/create.view.php', [
+        'banner' => 'Registrace nového uživatele',
+        'errors' => $errors
+    ]);
+    exit;
+}
+
+
+$db = App::resolve(Database::class);
+
+$user = $db->query("SELECT * FROM users WHERE email = :email", [
+    'email' => $email,
+])->find();
+if ($user) {
+
+    header('Location: /moje_stranka/');
+}else {
+    $db->query("INSERT INTO users (email, password) VALUES (:email, :password)", [
+        'email' => $email,
+        'password' => $password
+    ]);
+
+    $_SESSION['user'] = [
+        'email' => $email
+    ];
+
+    header('Location: /moje_stranka/');
+}
