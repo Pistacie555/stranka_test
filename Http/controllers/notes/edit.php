@@ -4,7 +4,7 @@ use Core\Database;
 
 
 $db = App::resolve(Database::class);
-$currentUserId = 3; // Předpokládané ID přihlášeného uživatele
+$currentUserId = $_SESSION['user']['id']; 
 
 
 $note = $db->query("SELECT * FROM notes WHERE id = :id", [
@@ -13,7 +13,8 @@ $note = $db->query("SELECT * FROM notes WHERE id = :id", [
 
 authorize($note['user_id'] === $currentUserId);
 
-view('notes/show.view.php', [
-    'banner' => "My Note",
+view('notes/edit.view.php', [
+    'banner' => 'Edit poznámky',
+    'errors' => [],
     'note' => $note
 ]);

@@ -4,17 +4,19 @@ use Core\Database;
 
 
 $db = App::resolve(Database::class);
-$currentUserId = 3; // Předpokládané ID přihlášeného uživatele
+
+$currentUserId = $_SESSION['user']['id']; 
 
 
 $note = $db->query("SELECT * FROM notes WHERE id = :id", [
-    'id' => $_GET['id']
+    'id' => $_POST['id']
 ])->findOrFail();
 
 authorize($note['user_id'] === $currentUserId);
 
-view('notes/edit.view.php', [
-    'banner' => 'Edit poznámky',
-    'errors' => [],
-    'note' => $note
+$db->query("DELETE FROM notes WHERE id = :id", [
+    'id' => $_POST['id']
 ]);
+
+header('Location: /moje_stranka/notes');
+exit;

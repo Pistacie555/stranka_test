@@ -5,6 +5,7 @@ require base_path('views/partials/nav.php'); // Zahrnutí navigace
 require base_path('views/partials/banner.php'); // Zahrnutí banneru
 ?>
 
+<?php echo "<h1>Welcome, " . ($_SESSION['user']['email'] ?? 'Guest') . "!</h1>"; ?>
 <main>
     <?php
     // Příklad PHP kódu

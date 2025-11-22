@@ -20,10 +20,9 @@ if (! empty($errors)) {
     ]);
 }
 
-
 $db->query("INSERT INTO notes (body, user_id) VALUES (:body, :user_id)", [
     'body' => $_POST['body'],
-    'user_id' => 3  // Předpokládané ID přihlášeného uživatele
+    'user_id' => $_SESSION['user']['id']  // Předpokládané ID přihlášeného uživatele
 ]);
 
 header('Location: /moje_stranka/notes');
