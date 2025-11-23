@@ -12,7 +12,7 @@ class LoginForm
             $this->errors['email'] = "Neplatná emailová adresa.";
         }
 
-        if (!Validator::string($password, 1,5)) {
+        if (!Validator::string($password)) {
             $this->errors['password'] = "Heslo musí být správné.";
         }
 
@@ -22,5 +22,9 @@ class LoginForm
     public function errors()
     {
         return $this->errors;
+    }
+    public function error($field, $message)
+    {
+        $this->errors[$field] = $message;
     }
 }
