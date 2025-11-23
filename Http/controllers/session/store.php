@@ -1,5 +1,5 @@
 <?php
-
+use Core\Session;
 use Core\Authenticator;
 use Http\Forms\LoginForm;
 
@@ -16,7 +16,9 @@ if ($form->validate($email, $password)) {
     $form->error('email', 'Pod tímto emailem a heslem není žádný uživatel registrován.');
 }
 
-return view('session/create.view.php', [
-    'banner' => 'Přihlášení uživatele',
-    'errors' => $form->errors()
+Session::flash('errors', $form->errors());
+Session::flash('old', [
+    'email' => $email
 ]);
+
+redirect('/moje_stranka/login');

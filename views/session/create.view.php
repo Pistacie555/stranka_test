@@ -1,6 +1,5 @@
 <?php
 
-
 require base_path('views/partials/head.php');  // Zahrnutí hlavičky HTML 
 require base_path('views/partials/nav.php'); // Zahrnutí navigace 
 require base_path('views/partials/banner.php'); // Zahrnutí banneru
@@ -15,7 +14,7 @@ require base_path('views/partials/banner.php'); // Zahrnutí banneru
         <br>
         <div>
             <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required value="<?= old('email') ?>">
         </div>
 
         <?php if (isset($errors['email'])) : ?>
