@@ -2,6 +2,7 @@
 use Core\Database;
 use Core\App;
 use Core\Validator;
+use Core\Authenticator;
 
 $db = App::resolve(Database::class);
 
@@ -42,7 +43,7 @@ if ($user) {
         'password' => password_hash($password, PASSWORD_DEFAULT)
     ]);
 
-    login([
+    (new Authenticator)->login([
         'email' => $email,
         'id' => $db->connection->lastInsertId()
     ]);
