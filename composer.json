@@ -1,0 +1,27 @@
+{
+    "name": "admyn/moje_stranka",
+    "authors": [
+        {
+            "name": "Adam Misurec",
+            "email": "misurec.adam@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^12.39"
+    },
+    "autoload": {
+    
+        "psr-4": {
+        "Core\\": "Core/",
+        "Http\\": "Http/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
